@@ -9,6 +9,7 @@
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_orbe8")
+SPEED = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.148438, 0.148438)
