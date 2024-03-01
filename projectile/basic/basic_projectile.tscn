@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3n7e5xbvqf3n"]
 
-[ext_resource type="Texture2D" uid="uid://bk6pv5h2q7xwc" path="res://icon.svg" id="1_2c8yu"]
 [ext_resource type="Script" path="res://projectile/basic/basic_projectile.gd" id="1_orbe8"]
+[ext_resource type="Texture2D" uid="uid://cmokkva02nsa4" path="res://projectile/basic/placeholder_basic.png" id="2_gc5k2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uluno"]
 
@@ -9,11 +9,13 @@
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_orbe8")
-SPEED = 1000
+SPEED = 1500
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.148438, 0.148438)
-texture = ExtResource("1_2c8yu")
+rotation = 1.5708
+scale = Vector2(0.194219, 0.194219)
+texture = ExtResource("2_gc5k2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uluno")
