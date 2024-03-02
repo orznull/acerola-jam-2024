@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 class_name Player
 
+@export var MAX_HEALTH = 100
+var health = MAX_HEALTH
+
 const RUN_SPEED = 300.0
 const DECELERATION = 300.0
 const WALKING_MULTIPLIER = 0.3
@@ -56,3 +59,6 @@ func process_aim(delta: float):
 func process_time_adjustment(_delta: float):
 	var adjusted_time_scale = max(velocity.length() / RUN_SPEED, min(angular_velocity / TAU, 1))
 	TimeDilation.bump_time_scale(adjusted_time_scale)
+	
+func damage(val: int):
+	health -= val

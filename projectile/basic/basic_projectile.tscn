@@ -13,6 +13,7 @@ SPEED = 1500
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
 rotation = 1.5708
 scale = Vector2(0.194219, 0.194219)
 texture = ExtResource("2_gc5k2")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dknxmmef37rb3"]
+
+[ext_resource type="Script" path="res://ui/battle_ui/player_health_bar.gd" id="1_2pqdb"]
+
+[node name="battle_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="player_health_bar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 23.0
+offset_right = 423.0
+offset_bottom = 59.0
+value = 100.0
+script = ExtResource("1_2pqdb")
