@@ -2,7 +2,7 @@ extends Node2D
 class_name EnemyWeapon
 
 var shooting = false
-func shoot(_init_pos: Vector2):
+func shoot():
 	pass
 
 func _process(delta):

@@ -9,7 +9,7 @@ const RUN_SPEED = 300.0
 const DECELERATION = 300.0
 const WALKING_MULTIPLIER = 0.3
 
-var prev_rotation = rotation
+var prev_rotation = 0
 var angular_velocity = 0
 
 func _ready():
@@ -43,18 +43,16 @@ func process_velocity(_delta: float):
 
 func process_aim(delta: float):
 	var mouse_pos = get_global_mouse_position()
-	prev_rotation = float(rotation)
-	rotation = position.angle_to_point(mouse_pos)
+	prev_rotation = float($Sprite2D.rotation)
+	$Sprite2D.rotation = position.angle_to_point(mouse_pos)
 
-	var angle_diff = fposmod(rotation - prev_rotation, TAU)
+	var angle_diff = fposmod($Sprite2D.rotation - prev_rotation, TAU)
 	if angle_diff > PI:
 		angle_diff -= TAU
 	angular_velocity = abs(angle_diff) / delta
 
 	if Input.is_action_just_pressed("shoot"):
-		var weapons = $Weapons.get_children()
-		if len(weapons) > 0 and weapons[0] is Weapon:
-			weapons[0].shoot(mouse_pos)
+		$WeaponsManager.shoot(mouse_pos)
 
 func process_time_adjustment(_delta: float):
 	var adjusted_time_scale = max(velocity.length() / RUN_SPEED, min(angular_velocity / TAU, 1))

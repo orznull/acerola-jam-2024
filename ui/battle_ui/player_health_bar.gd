@@ -7,6 +7,5 @@ func _ready():
 
 func _process(_delta):
 	if not GlobalPlayer.player:
-		print("qaugh")
 		return
 	value = GlobalPlayer.player.health

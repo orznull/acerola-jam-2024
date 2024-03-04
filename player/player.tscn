@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct51shkpjmm4l"]
+[gd_scene load_steps=7 format=3 uid="uid://c1who8y6gom5y"]
 
 [ext_resource type="Texture2D" uid="uid://bk6pv5h2q7xwc" path="res://icon.svg" id="1_lxvr8"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_yui62"]
-[ext_resource type="PackedScene" uid="uid://dmvavj2ktdnuy" path="res://weapon/basic/basic_weapon.tscn" id="3_6qpt2"]
+[ext_resource type="PackedScene" uid="uid://bk368dleqe886" path="res://player/weapons_manager/weapons_manager.tscn" id="3_pje0d"]
+[ext_resource type="Script" path="res://player/player_camera.gd" id="4_s1s10"]
+[ext_resource type="Script" path="res://player/ReloadTimerUI.gd" id="5_lge7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_louhi"]
 size = Vector2(127, 128)
@@ -19,6 +21,16 @@ shape = SubResource("RectangleShape2D_louhi")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lxvr8")
 
-[node name="Weapons" type="Node2D" parent="."]
+[node name="WeaponsManager" parent="." instance=ExtResource("3_pje0d")]
 
-[node name="basic_weapon" parent="Weapons" instance=ExtResource("3_6qpt2")]
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_speed = 3.0
+script = ExtResource("4_s1s10")
+
+[node name="ReloadTimerUI" type="ProgressBar" parent="."]
+offset_left = -61.0
+offset_top = -92.0
+offset_right = 61.0
+offset_bottom = -80.0
+show_percentage = false
+script = ExtResource("5_lge7f")
