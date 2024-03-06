@@ -59,4 +59,5 @@ func process_time_adjustment(_delta: float):
 	TimeDilation.bump_time_scale(adjusted_time_scale)
 	
 func damage(val: int):
+	$Camera2D.shake(0.2)
 	health -= val

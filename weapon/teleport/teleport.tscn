@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpv2rerhd7vmp"]
+
+[ext_resource type="Texture2D" uid="uid://cqw4hmf4m03y5" path="res://weapon/teleport/teleport_placeholder.png" id="1_b01yr"]
+[ext_resource type="Script" path="res://weapon/teleport/teleport.gd" id="2_bl1kl"]
+[ext_resource type="Texture2D" uid="uid://c3276vyfth73j" path="res://weapon/basic/crosshair_placeholder.png" id="3_ucb3u"]
+
+[node name="teleport" type="Sprite2D"]
+texture = ExtResource("1_b01yr")
+offset = Vector2(150, 0)
+script = ExtResource("2_bl1kl")
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+texture = ExtResource("3_ucb3u")

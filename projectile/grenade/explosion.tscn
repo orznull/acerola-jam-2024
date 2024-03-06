@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://gstvuoshypvd"]
+
+[ext_resource type="Script" path="res://projectile/grenade/explosion.gd" id="1_lroxe"]
+[ext_resource type="Texture2D" uid="uid://dkaejl6h8v83b" path="res://projectile/grenade/explosion-placeholder.png" id="2_vhmmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5q28i"]
+radius = 331.038
+
+[node name="explosion" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_lroxe")
+
+[node name="Explosion-placeholder" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_vhmmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5q28i")

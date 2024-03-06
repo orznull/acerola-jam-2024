@@ -1,0 +1,40 @@
+[gd_scene load_steps=12 format=3 uid="uid://bk368dleqe886"]
+
+[ext_resource type="Script" path="res://player/weapons_manager/weapons_manager.gd" id="1_80tqy"]
+[ext_resource type="Texture2D" uid="uid://b4ky6lefq1tnk" path="res://player/weapons_manager/empty_sprite_placeholder.png" id="2_vhlu0"]
+[ext_resource type="Script" path="res://player/weapons_manager/Empty.gd" id="3_1tv0k"]
+[ext_resource type="PackedScene" uid="uid://dmvavj2ktdnuy" path="res://weapon/basic/basic_weapon.tscn" id="3_a6xec"]
+[ext_resource type="Texture2D" uid="uid://caipfg16e0k5s" path="res://player/weapons_manager/empty_crosshair_placeholder.png" id="4_0hl4p"]
+[ext_resource type="PackedScene" uid="uid://dblev75p0e7u5" path="res://weapon/twin-shot/twin_shot.tscn" id="4_31qtt"]
+[ext_resource type="PackedScene" uid="uid://dyjt7e8b3vyvv" path="res://weapon/split/split.tscn" id="5_kw6jk"]
+[ext_resource type="PackedScene" uid="uid://dpv2rerhd7vmp" path="res://weapon/teleport/teleport.tscn" id="5_mg3rv"]
+[ext_resource type="PackedScene" uid="uid://bsaym5mg3k3qy" path="res://weapon/laser/laser.tscn" id="5_ogy11"]
+[ext_resource type="PackedScene" uid="uid://svxvm84qs6j1" path="res://weapon/block/block.tscn" id="5_wgkfb"]
+[ext_resource type="PackedScene" uid="uid://yuha8pots1mj" path="res://weapon/grenade/grenade.tscn" id="6_bc7tw"]
+
+[node name="WeaponsManager" type="Node2D"]
+script = ExtResource("1_80tqy")
+
+[node name="Empty" type="Sprite2D" parent="."]
+position = Vector2(150, 0)
+texture = ExtResource("2_vhlu0")
+script = ExtResource("3_1tv0k")
+
+[node name="Crosshair" type="Sprite2D" parent="Empty"]
+texture = ExtResource("4_0hl4p")
+
+[node name="WeaponsList" type="Node2D" parent="."]
+
+[node name="split" parent="WeaponsList" instance=ExtResource("5_kw6jk")]
+
+[node name="block" parent="WeaponsList" instance=ExtResource("5_wgkfb")]
+
+[node name="teleport" parent="WeaponsList" instance=ExtResource("5_mg3rv")]
+
+[node name="grenade" parent="WeaponsList" instance=ExtResource("6_bc7tw")]
+
+[node name="basic_weapon" parent="WeaponsList" instance=ExtResource("3_a6xec")]
+
+[node name="twin_shot" parent="WeaponsList" instance=ExtResource("4_31qtt")]
+
+[node name="laser" parent="WeaponsList" instance=ExtResource("5_ogy11")]

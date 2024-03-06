@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddu04jqoercik"]
+
+[ext_resource type="Script" path="res://projectile/block/block.gd" id="1_spu1c"]
+[ext_resource type="Texture2D" uid="uid://btolcuwginv7b" path="res://projectile/block/block_placeholder.png" id="2_xt63c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjxxs"]
+size = Vector2(20, 286)
+
+[node name="block" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_spu1c")
+SPEED = 300
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_xt63c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11, 0)
+shape = SubResource("RectangleShape2D_hjxxs")
