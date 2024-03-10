@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkhj7i3pmx3kp"]
+
+[ext_resource type="Script" path="res://enemy/random/random_enemy.gd" id="1_rrc50"]
+[ext_resource type="Texture2D" uid="uid://dudtq2bkb3mtm" path="res://enemy/random/dummy_random.png" id="2_us8b3"]
+[ext_resource type="PackedScene" uid="uid://kya4r2ebfc3n" path="res://enemy/enemy_weapons/single_shot/single_shot.tscn" id="3_iokrt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqfxe"]
+size = Vector2(103, 103)
+
+[node name="dummy_random" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_rrc50")
+RANDOM_CHANGE_ATTEMPT_INTERVAL = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_us8b3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_pqfxe")
+
+[node name="Weapon" parent="." instance=ExtResource("3_iokrt")]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -58.0
+offset_top = -84.0
+offset_right = 57.0
+offset_bottom = -57.0
+value = 100.0
