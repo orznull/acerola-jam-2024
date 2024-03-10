@@ -15,6 +15,8 @@ var cooldown_timer = COOLDOWN_INTERVAL
 var dead = false
 
 func _ready():
+	$ProgressBar.max_value = SHOOT_INTERVAL
+	#$IndicatorLine.points[0] = $Sprite2D.offset
 	if (GlobalPlayer.player):
 		rotation = (GlobalPlayer.player.global_position - global_position).angle()
 
@@ -29,21 +31,30 @@ func shoot():
 func onDilatedProcess(delta):
 
 	if (dead):
-		$IndicatorLine.width = 0
+		$ProgressBar.visible = false
+		#$IndicatorLine.width = 0
 		return
+
+	$Sprite2D.flip_v = should_flip()
 
 	process_shooting(delta)
 	
+	"""
 	if cooldown_timer < 0:
 		$IndicatorLine.points[1] = Vector2(10000, 0)
 		$IndicatorLine.width = max(LINE_INITIAL_WIDTH * (shoot_timer / SHOOT_INTERVAL), 5)
 	else:
 		$IndicatorLine.width = 0
+	"""
 
 func process_shooting(delta):
+
 	if cooldown_timer > 0:
+		$ProgressBar.visible = false
 		cooldown_timer -= delta
 	elif shoot_timer > 0:
+		$ProgressBar.visible = true
+		$ProgressBar.value = shoot_timer
 		shoot_timer -= delta
 
 		var target = (GlobalPlayer.player.global_position - global_position).angle()
@@ -60,3 +71,8 @@ func process_shooting(delta):
 	
 func onDie():
 	dead = true
+
+func should_flip():
+	# TODO: replace this idk im lazy man
+	var true_angle = Vector2.RIGHT.rotated(rotation).angle_to(Vector2.RIGHT)
+	return true_angle < - PI / 2 or true_angle > PI / 2

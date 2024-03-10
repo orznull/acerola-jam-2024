@@ -25,13 +25,13 @@ texture = ExtResource("4_0hl4p")
 
 [node name="WeaponsList" type="Node2D" parent="."]
 
+[node name="grenade" parent="WeaponsList" instance=ExtResource("6_bc7tw")]
+
 [node name="split" parent="WeaponsList" instance=ExtResource("5_kw6jk")]
 
 [node name="block" parent="WeaponsList" instance=ExtResource("5_wgkfb")]
 
 [node name="teleport" parent="WeaponsList" instance=ExtResource("5_mg3rv")]
-
-[node name="grenade" parent="WeaponsList" instance=ExtResource("6_bc7tw")]
 
 [node name="basic_weapon" parent="WeaponsList" instance=ExtResource("3_a6xec")]
 

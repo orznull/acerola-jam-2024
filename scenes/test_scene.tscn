@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cafhg6t2hy0s4"]
+[gd_scene load_steps=6 format=3 uid="uid://1hpqcw0wulai"]
 
-[ext_resource type="PackedScene" uid="uid://gxff8xd2yrmc" path="res://enemy/dummy_enemy/dummy_enemy.tscn" id="1_aat6q"]
+[ext_resource type="PackedScene" uid="uid://gxff8xd2yrmc" path="res://enemy/dummy_enemy/dummy_single_shot.tscn" id="1_aat6q"]
 [ext_resource type="PackedScene" uid="uid://dknxmmef37rb3" path="res://ui/battle_ui/battle_ui.tscn" id="1_wxlo2"]
 [ext_resource type="PackedScene" uid="uid://c1who8y6gom5y" path="res://player/player.tscn" id="2_c74v1"]
+[ext_resource type="PackedScene" uid="uid://dkhj7i3pmx3kp" path="res://enemy/random/random_single_shot.tscn" id="4_1kj1e"]
+[ext_resource type="PackedScene" uid="uid://bq0qow8ge1o50" path="res://enemy/strafe/strafe_single_shot.tscn" id="5_gp8au"]
 
 [node name="test_scene" type="Node2D"]
 
@@ -13,3 +15,8 @@ position = Vector2(291, 303)
 
 [node name="dummy_enemy" parent="." instance=ExtResource("1_aat6q")]
 position = Vector2(742, 330)
+
+[node name="dummy_strafe" parent="." instance=ExtResource("5_gp8au")]
+
+[node name="dummy_random" parent="." instance=ExtResource("4_1kj1e")]
+position = Vector2(33, 525)

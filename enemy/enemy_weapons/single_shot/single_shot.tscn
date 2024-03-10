@@ -1,14 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://kya4r2ebfc3n"]
+[gd_scene load_steps=3 format=3 uid="uid://kya4r2ebfc3n"]
 
 [ext_resource type="Script" path="res://enemy/enemy_weapons/single_shot/single_shot.gd" id="1_kvjoq"]
+[ext_resource type="Texture2D" uid="uid://bn5e8dd6xghof" path="res://weapon/basic/placeholder_basic.png" id="2_a07ux"]
 
 [node name="single_shot" type="Node2D"]
 script = ExtResource("1_kvjoq")
 
-[node name="IndicatorLine" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, 0)
-width = 50.0
-default_color = Color(1, 0.180392, 0.180392, 0.65098)
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(10000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_a07ux")
+offset = Vector2(100, 0)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 64.0
+offset_top = -55.0
+offset_right = 138.0
+offset_bottom = -36.0
+show_percentage = false

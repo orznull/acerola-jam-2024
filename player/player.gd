@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
-@export var MAX_HEALTH = 100
+@export var MAX_HEALTH = 5
 var health = MAX_HEALTH
 
 const RUN_SPEED = 300.0
@@ -12,11 +12,17 @@ const WALKING_MULTIPLIER = 0.3
 var prev_rotation = 0
 var angular_velocity = 0
 
+var dead = false
+
 func _ready():
+	TimeDilation.active = true
 	GlobalPlayer.player = self
 
 func _physics_process(delta: float):
-	
+	if dead:
+		modulate.a -= delta
+		return
+
 	process_velocity(delta)
 	process_aim(delta)
 	process_time_adjustment(delta)
@@ -61,3 +67,10 @@ func process_time_adjustment(_delta: float):
 func damage(val: int):
 	$Camera2D.shake(0.2)
 	health -= val
+	if health <= 0:
+		die()
+
+func die():
+	$Camera2D.zoom = lerp($Camera2D.zoom, Vector2(0.5, 0.5), 0.3)
+	TimeDilation.active = false
+	dead = true

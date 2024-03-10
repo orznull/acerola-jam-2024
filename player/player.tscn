@@ -6,20 +6,20 @@
 [ext_resource type="Script" path="res://player/player_camera.gd" id="4_s1s10"]
 [ext_resource type="Script" path="res://player/ReloadTimerUI.gd" id="5_lge7f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_louhi"]
-size = Vector2(127, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmycj"]
+radius = 41.4453
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_yui62")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.329895, 0.0909424)
-shape = SubResource("RectangleShape2D_louhi")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lxvr8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.329895, 0.0909424)
+shape = SubResource("CircleShape2D_rmycj")
 
 [node name="WeaponsManager" parent="." instance=ExtResource("3_pje0d")]
 
